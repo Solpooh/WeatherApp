@@ -23,6 +23,14 @@
             <type>maven-plugin</type>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20231013</version>
+        </dependency>
+
+
 
         <dependency>
             <groupId>org.openjfx</groupId>
