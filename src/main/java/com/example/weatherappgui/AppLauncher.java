@@ -14,9 +14,11 @@ public class AppLauncher {
             @Override
             public void run() {
 //                // display our weather app gui
-//                new WeatherAppGui().setVisible(true);
+                new WeatherAppGui().setVisible(true);
 
-                System.out.println(WeatherApp.getLocationData("Tokyo"));
+//                System.out.println(WeatherApp.getLocationData("Tokyo"));
+
+                System.out.println(WeatherApp.getCurrentTime());
             }
         });
     }
