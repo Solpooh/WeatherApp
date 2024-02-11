@@ -19,16 +19,17 @@ public class WeatherApp {
     public static JSONObject getWeatherData(String locationName) {
         // get location coordinates using the geolocation API
         JSONArray locationData = getLocationData(locationName);
+        System.out.println(locationData);
 
         // extract latitude and longitude data
         JSONObject location = (JSONObject) locationData.get(0);
         double latitude = (double) location.get("latitude");
         double longitude = (double) location.get("longitude");
 
-        // build API request URL with location coordinates
+        // build API request URL with location coordinates (좌표)
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
         "latitude=" + latitude + "&longitude=" + longitude +
-        "&hourly=temperature_2m,weather_code,wind_speed_10m,soil_temperature_0cm";
+                "&hourly=temperature_2m,relativehumidity_2m,weathercode,windspeed_10m&timezone=America%2FLos_Angeles";
 
         try {
             // call api and get response
@@ -102,7 +103,7 @@ public class WeatherApp {
     public static JSONArray getLocationData(String locationName) {
         // replace any whitespace in location name to + to adhere to API's request format
         // ex) https://open-meteo.com/en/docs/geocoding-api#name=new+york
-        locationName = locationName.replace(" ", "+");
+        locationName = locationName.replaceAll(" ", "+");
 
         // build API url with location parameter
         String urlString = "https://geocoding-api.open-meteo.com/v1/search?name=" +
