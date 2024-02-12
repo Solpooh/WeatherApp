@@ -14,6 +14,7 @@ public class AppLauncher {
             @Override
             public void run() {
 //                // display our weather app gui
+                // 날씨 앱 시작
                 new WeatherAppGui().setVisible(true);
 
 //                System.out.println(WeatherApp.getLocationData("Tokyo"));
